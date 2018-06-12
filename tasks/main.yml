@@ -6,7 +6,7 @@
   pip:
     name: django-prometheus
     state: present
-    version: 1.0.10
+    version: "{{ omero_web_django_prometheus_version }}"
     virtualenv: "{{ omero_common_basedir }}/web/venv"
     virtualenv_site_packages: yes
   notify:

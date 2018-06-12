@@ -6,6 +6,9 @@
 # Expert users only!
 ######################################################################
 
+# django-prometheus version
+omero_web_django_prometheus_version: 1.0.14
+
 # omero.web.middleware index for PrometheusBeforeMiddleware
 omero_web_django_prometheus_middleware_before: 0
 
