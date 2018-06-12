@@ -1,6 +1,9 @@
 ---
 # defaults file for omero-web-django-prometheus
 
+# Automatically set omero.web.* configuration properties
+omero_web_django_prometheus_config_web: True
+
 
 ######################################################################
 # Expert users only!
@@ -8,6 +11,10 @@
 
 # django-prometheus version
 omero_web_django_prometheus_version: 1.0.14
+
+# OMERO.web doesn't support appending to omero.web.wsgi_arg,
+# we can only override it
+omero_web_django_prometheus_wsgi_args: '--config file:{{ omero_common_basedir }}/web/config/gunicorn-config.py'
 
 # omero.web.middleware index for PrometheusBeforeMiddleware
 omero_web_django_prometheus_middleware_before: 0
