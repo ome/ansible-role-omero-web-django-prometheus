@@ -1,0 +1,44 @@
+---
+# tasks file for omero-web-django-prometheus
+
+- name: omero-web django prometheus | install
+  become: yes
+  pip:
+    name: django-prometheus
+    state: present
+    version: 1.0.10
+    virtualenv: "{{ omero_common_basedir }}/web/venv"
+    virtualenv_site_packages: yes
+  notify:
+  - restart omero-web
+
+- name: omero-web django prometheus | configure
+  become: yes
+  template:
+    dest: "{{ omero_common_basedir }}/web/config/django-prometheus.omero"
+    src: omero-web-config-django-prometheus-omero.j2
+  notify:
+  - restart omero-web
+
+- name: omero-web django prometheus | configure gunicorn
+  become: yes
+  copy:
+    dest: "{{ omero_common_basedir }}/web/config/gunicorn-config.py"
+    src: omero-web-config-gunicorn-config.py
+  notify:
+  - restart omero-web
+
+- name: omero-web django prometheus | service.d directory
+  become: yes
+  file:
+    path: /etc/systemd/system/omero-web.service.d
+    state: directory
+
+- name: omero-web django prometheus | service.d file
+  become: yes
+  template:
+    dest: /etc/systemd/system/omero-web.service.d/prometheus.conf
+    src: systemd-system-omero-web-service-d-prometheus-conf.j2
+  notify:
+  - reload systemd
+  - restart omero-web

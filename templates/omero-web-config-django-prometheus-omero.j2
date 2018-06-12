@@ -1,0 +1,5 @@
+config append -- omero.web.middleware '{"index":{{ omero_web_django_prometheus_middleware_before }}, "class": "django_prometheus.middleware.PrometheusBeforeMiddleware"}'
+config append -- omero.web.middleware '{"index":{{ omero_web_django_prometheus_middleware_after }}, "class": "django_prometheus.middleware.PrometheusAfterMiddleware"}'
+config append -- omero.web.apps '"django_prometheus"'
+
+config set -- omero.web.wsgi_args '--config file:{{ omero_common_basedir }}/web/config/gunicorn-config.py'

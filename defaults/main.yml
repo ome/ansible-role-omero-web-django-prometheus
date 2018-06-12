@@ -1,0 +1,13 @@
+---
+# defaults file for omero-web-django-prometheus
+
+
+######################################################################
+# Expert users only!
+######################################################################
+
+# omero.web.middleware index for PrometheusBeforeMiddleware
+omero_web_django_prometheus_middleware_before: 0
+
+# omero.web.middleware index for PrometheusAfterMiddleware
+omero_web_django_prometheus_middleware_after: 1000
