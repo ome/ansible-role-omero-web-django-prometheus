@@ -4,6 +4,9 @@
 # Automatically set omero.web.* configuration properties
 omero_web_django_prometheus_config_web: True
 
+# Prometheus temporary statistics directory
+omero_web_django_prometheus_stats_dir: "{{ omero_common_basedir }}/web/prometheus/stats"
+
 
 ######################################################################
 # Expert users only!

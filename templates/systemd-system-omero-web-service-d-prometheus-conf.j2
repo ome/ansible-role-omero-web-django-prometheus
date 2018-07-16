@@ -1,4 +1,3 @@
 [Service]
-Environment="prometheus_multiproc_dir={{ omero_common_basedir }}/web/OMERO.web/var/prometheus"
-ExecStartPre=/bin/sh -c '/usr/bin/rm -rf "$prometheus_multiproc_dir" && \
-    /usr/bin/mkdir -p "$prometheus_multiproc_dir"'
+Environment="prometheus_multiproc_dir={{ omero_web_django_prometheus_stats_dir }}"
+ExecStartPre=/bin/sh -c '/usr/bin/rm -rf "$prometheus_multiproc_dir/"*'
