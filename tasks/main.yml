@@ -43,11 +43,12 @@
   - reload systemd
   - restart omero-web
 
-# systemd service should create this directory but sometimes it's absence
-# on the first restart causes problems
+# systemd service should create this directory but this may be required
+# for other invocations of bin/omero including ExecStartPre
 - name: omero-web django prometheus | stats dir
   become: yes
   file:
-    path: "{{ omero_common_basedir }}/web/OMERO.web/var/prometheus"
+    path: "{{ omero_web_django_prometheus_stats_dir }}"
+    recurse: yes
     state: directory
     owner: "{{ omero_web_system_user | default('omero-web') }}"
