@@ -8,9 +8,9 @@ galaxy_info:
   - name: EL
     versions:
     - 7
+  role_name: omero_web_django_prometheus
   galaxy_tags: []
 
 dependencies:
 # Required for omero-web handlers
-- name: openmicroscopy.omero-common
-  src: openmicroscopy.omero-common
+- src: ome.omero_common
