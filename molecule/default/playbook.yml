@@ -1,0 +1,10 @@
+---
+- name: Converge
+  hosts: all
+  roles:
+    - role: ome.omero_web
+      # Use precompiled IcePy to speed up installation
+      ice_python_wheel: >-
+        https://github.com/ome/zeroc-ice-py-centos7/releases/download/0.0.3/zeroc_ice-3.6.4-cp27-cp27mu-linux_x86_64.whl
+
+    - role: ansible-role-omero-web-django-prometheus

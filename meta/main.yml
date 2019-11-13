@@ -1,3 +1,4 @@
+---
 galaxy_info:
   author: ome-devel@lists.openmicroscopy.org.uk
   description: OMERO.web django-prometheus exporter
@@ -5,12 +6,12 @@ galaxy_info:
   license: BSD
   min_ansible_version: 2.3
   platforms:
-  - name: EL
-    versions:
-    - 7
+    - name: EL
+      versions:
+        - 7
   role_name: omero_web_django_prometheus
   galaxy_tags: []
 
 dependencies:
-# Required for omero-web handlers
-- role: ome.omero_common
+  # Required for omero-web handlers
+  - role: ome.omero_common
