@@ -1,2 +1,4 @@
 ---
-- src: ome.omero_web
+- name: ome.omero_web
+  src: >-
+    https://github.com/ome/ansible-role-omero-web/archive/53a2bc3b31e48ce201d15ff81e974d1c17b58516.tar.gz
