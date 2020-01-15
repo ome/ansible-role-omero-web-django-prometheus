@@ -7,7 +7,7 @@
     name: django-prometheus
     state: present
     version: "{{ omero_web_django_prometheus_version }}"
-    virtualenv: "{{ omero_common_basedir }}/web/venv"
+    virtualenv: "{{ omero_common_basedir }}/web/venv3"
     virtualenv_site_packages: true
   notify:
     - restart omero-web
