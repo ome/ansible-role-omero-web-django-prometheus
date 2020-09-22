@@ -14,7 +14,7 @@ omero_web_django_prometheus_stats_dir: >-
 ######################################################################
 
 # django-prometheus version
-omero_web_django_prometheus_version: 1.1.0
+omero_web_django_prometheus_version: 2.0.0
 
 # OMERO.web doesn't support appending to omero.web.wsgi_arg,
 # we can only override it
