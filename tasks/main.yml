@@ -17,6 +17,7 @@
   template:
     dest: "{{ omero_common_basedir }}/web/config/django-prometheus.omero"
     src: omero-web-config-django-prometheus-omero.j2
+    mode: 0644
   notify:
     - restart omero-web
 
@@ -25,6 +26,7 @@
   copy:
     dest: "{{ omero_common_basedir }}/web/config/gunicorn-config.py"
     src: omero-web-config-gunicorn-config.py
+    mode: 0644
   notify:
     - restart omero-web
 
@@ -33,12 +35,14 @@
   file:
     path: /etc/systemd/system/omero-web.service.d
     state: directory
+    mode: 0755
 
 - name: omero-web django prometheus | service.d file
   become: true
   template:
     dest: /etc/systemd/system/omero-web.service.d/prometheus.conf
     src: systemd-system-omero-web-service-d-prometheus-conf.j2
+    mode: 0644
   notify:
     - reload systemd
     - restart omero-web
@@ -49,6 +53,6 @@
   become: true
   file:
     path: "{{ omero_web_django_prometheus_stats_dir }}"
-    recurse: true
     state: directory
     owner: "{{ omero_web_system_user | default('omero-web') }}"
+    mode: 0755
