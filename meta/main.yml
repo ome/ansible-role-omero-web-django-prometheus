@@ -10,6 +10,7 @@ galaxy_info:
       versions:
         - 7
   role_name: omero_web_django_prometheus
+  namespace: ome
   galaxy_tags: []
 
 dependencies:
