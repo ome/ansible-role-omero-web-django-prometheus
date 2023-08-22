@@ -3,4 +3,4 @@
   hosts: all
   roles:
     - role: ome.omero_web
-    - role: ansible-role-omero-web-django-prometheus
+    - role: ome.omero_web_django_prometheus
