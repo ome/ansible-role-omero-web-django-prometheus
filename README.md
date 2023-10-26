@@ -2,7 +2,7 @@ OMERO.web django-prometheus
 ===========================
 
 [![Actions Status](https://github.com/ome/ansible-role-omero-web-django-prometheus/workflows/Molecule/badge.svg)](https://github.com/ome/ansible-role-omero-web-django-prometheus/actions)
-[![Ansible Role](https://img.shields.io/ansible/role/42003.svg)](https://galaxy.ansible.com/ome/omero_web_django_prometheus/)
+[![Ansible Role](https://img.shields.io/badge/ansible--galaxy-omero_web_django_prometheus-blue.svg)](https://galaxy.ansible.com/ui/standalone/roles/ome/omero_web_django_prometheus/)
 
 Install and configure Django Prometheus exporter for OMERO.web.
 Assumes OMERO.web 5.6+ Python 3 has been installed using the [ome.omero_web](https://galaxy.ansible.com/ome/omero_web) role.
