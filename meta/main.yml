@@ -9,6 +9,9 @@ galaxy_info:
     - name: EL
       versions:
         - 9
+    - name: Ubuntu
+      versions:
+        - jammy
   role_name: omero_web_django_prometheus
   namespace: ome
   galaxy_tags: []
