@@ -4,11 +4,14 @@ galaxy_info:
   description: OMERO.web django-prometheus exporter
   company: Open Microscopy Environment
   license: BSD
-  min_ansible_version: 2.3
+  min_ansible_version: 2.10
   platforms:
     - name: EL
       versions:
-        - 7
+        - 9
+    - name: Ubuntu
+      versions:
+        - jammy
   role_name: omero_web_django_prometheus
   namespace: ome
   galaxy_tags: []

@@ -8,10 +8,24 @@ lint: |
     ansible-lint
     flake8
 platforms:
-  - name: omero-web-django-prometheus
-    image: centos/systemd
-    privileged: true
+  - name: rockylinux-9
+    image: eniocarboni/docker-rockylinux-systemd:9
     command: /sbin/init
+    privileged: true
+    cgroupns_mode: host
+    tmpfs:
+      - /sys/fs/cgroup
+    groups:
+      - extra_options
+  - name: ubuntu-2204
+    image: eniocarboni/docker-ubuntu-systemd:22.04
+    command: /sbin/init
+    privileged: true
+    cgroupns_mode: host
+    tmpfs:
+      - /sys/fs/cgroup
+    groups:
+      - extra_options
 provisioner:
   name: ansible
   lint:
