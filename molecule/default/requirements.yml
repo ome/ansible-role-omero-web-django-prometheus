@@ -3,3 +3,7 @@
 - name: omero_web
   src: https://github.com/pwalczysko/ansible-role-omero-web
   version: p312
+# To be removed after the ome.omero_common is released
+- name: omero_common
+  src: https://github.com/pwalczysko/ansible-role-omero-common
+  version: update-framework
