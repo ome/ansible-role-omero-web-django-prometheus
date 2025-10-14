@@ -35,7 +35,7 @@ provisioner:
     v: true
     diff: true
 scenario:
-  name: default
+  name: ubuntu2204
   converge_sequence:
     - converge
 verifier:
