@@ -2,7 +2,7 @@
 dependency:
   name: galaxy
   options:
-    role-file: molecule/default/requirements.yml
+    role-file: molecule/ubuntu2204/requirements.yml
 driver:
   name: docker
 lint: |
@@ -10,7 +10,7 @@ lint: |
     ansible-lint
     flake8
 platforms:
-  - name: omero-web-active-ubuntu2204
+  - name: omero-web-django-prometheus-ubuntu2204
     image: eniocarboni/docker-ubuntu-systemd:22.04
     command: /sbin/init
     privileged: true
@@ -40,4 +40,4 @@ scenario:
     - converge
 verifier:
   name: testinfra
-  # directory: ../resources/tests/
+  directory: ../resources/tests/
