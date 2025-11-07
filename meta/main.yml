@@ -18,4 +18,4 @@ galaxy_info:
 
 dependencies:
   # Required for omero-web handlers
-  - role: omero_common
+  - role: ome.omero_common
