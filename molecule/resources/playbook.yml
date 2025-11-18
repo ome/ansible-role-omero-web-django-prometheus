@@ -2,5 +2,5 @@
 - name: Converge
   hosts: all
   roles:
-    - role: omero_web
+    - role: ome.omero_web
     - role: ome.omero_web_django_prometheus
