@@ -3,7 +3,7 @@
 
 - name: omero-web django prometheus | install
   become: true
-  pip:
+  ansible.builtin.pip:
     name: django-prometheus
     state: present
     version: "{{ omero_web_django_prometheus_version }}"
@@ -14,7 +14,7 @@
 
 - name: omero-web django prometheus | configure
   become: true
-  template:
+  ansible.builtin.template:
     dest: "{{ omero_common_basedir }}/web/config/django-prometheus.omero"
     src: omero-web-config-django-prometheus-omero.j2
     mode: 0644
@@ -23,7 +23,7 @@
 
 - name: omero-web django prometheus | configure gunicorn
   become: true
-  copy:
+  ansible.builtin.copy:
     dest: "{{ omero_common_basedir }}/web/config/gunicorn-config.py"
     src: omero-web-config-gunicorn-config.py
     mode: 0644
@@ -32,14 +32,14 @@
 
 - name: omero-web django prometheus | service.d directory
   become: true
-  file:
+  ansible.builtin.file:
     path: /etc/systemd/system/omero-web.service.d
     state: directory
     mode: 0755
 
 - name: omero-web django prometheus | service.d file
   become: true
-  template:
+  ansible.builtin.template:
     dest: /etc/systemd/system/omero-web.service.d/prometheus.conf
     src: systemd-system-omero-web-service-d-prometheus-conf.j2
     mode: 0644
@@ -51,7 +51,7 @@
 # for other invocations of bin/omero including ExecStartPre
 - name: omero-web django prometheus | stats dir
   become: true
-  file:
+  ansible.builtin.file:
     path: "{{ omero_web_django_prometheus_stats_dir }}"
     state: directory
     owner: "{{ omero_web_system_user | default('omero-web') }}"

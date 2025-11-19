@@ -1,6 +1,8 @@
 ---
 dependency:
   name: galaxy
+  options:
+    role-file: molecule/resources/requirements.yml
 driver:
   name: docker
 lint: |
@@ -8,17 +10,9 @@ lint: |
     ansible-lint
     flake8
 platforms:
-  - name: rockylinux-9
+  - name: omero-web-django-prometheus-rockylinux9
     image: eniocarboni/docker-rockylinux-systemd:9
-    command: /sbin/init
-    privileged: true
-    cgroupns_mode: host
-    tmpfs:
-      - /sys/fs/cgroup
-    groups:
-      - extra_options
-  - name: ubuntu-2204
-    image: eniocarboni/docker-ubuntu-systemd:22.04
+    image_version: latest
     command: /sbin/init
     privileged: true
     cgroupns_mode: host
@@ -30,7 +24,18 @@ provisioner:
   name: ansible
   lint:
     name: ansible-lint
+  playbooks:
+    converge: ../resources/playbook.yml
+  inventory:
+    host_vars:
+      omero-web-active-rockylinux9:
+  options:
+    v: true
+    diff: true
 scenario:
-  name: default
+  name: rockylinux9
+  converge_sequence:
+    - converge
 verifier:
   name: testinfra
+  directory: ../resources/tests/
